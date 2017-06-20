@@ -25,7 +25,8 @@ SECRET_KEY = '*#44rn5n=4kjjsmx#gm0-!dkv-)^l9$5z1(42o74b%&8#wsj!#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','alex.pythonanywhere.com']
+# The 127.0.0.1 is your local host that you can use, whereas the jumpup98 wala link is the actual website that you have published live
+ALLOWED_HOSTS = ['127.0.0.1','jumpup98.pythonanywhere.com']
 
 
 # Application definition
