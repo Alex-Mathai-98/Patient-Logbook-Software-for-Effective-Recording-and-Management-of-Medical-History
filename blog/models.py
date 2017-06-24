@@ -16,6 +16,8 @@ class Post(models.Model):
 	text = models.TextField()
 	created_date = models.DateTimeField(default=timezone.now)
 	published_date = models.DateTimeField(blank=True,null=True)
+	''' blank = True means that it is allowed for not entering the information, null = True means that if the information is
+	not entered then in that place we will store NULL'''
 
 	def publish(self):
 		self.published_date = timezone.now()
