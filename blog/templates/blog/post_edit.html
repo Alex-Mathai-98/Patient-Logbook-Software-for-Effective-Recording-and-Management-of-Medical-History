@@ -1,0 +1,12 @@
+<!-- The form statement is needed to allow the displaying of the form using the double '{'' syntax, the csrf token statement is essesntial because it makes sites secure and without it django will give an error! -->
+
+{% extends 'blog/base.html' %}
+
+{%block content%}
+<h1>New Post</h1>
+<form method = "POST" class="post-form">
+	{% csrf_token %}
+	{{ form.as_p }}
+	<button type = "submit" class ="save btn btn-default"> Save </button>
+</form>
+{% endblock %}

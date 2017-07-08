@@ -1,18 +1,29 @@
-<!-- The block element helps to add html code into this document -->
+<!--head is an element that contains information about the document that is not displayed on the screen. Notice how the browser has understood that "Ola's blog" is the title of your page? It has interpreted <title>Mathai's blog</title> and placed the text in the title bar of your browser (it will also be used for bookmarks and so on)-->
+
+<!-- To print any variable like in this case 'posts', use the {{variable_name}} with the two curly brackets make python-->    
+<!--understandable to HTML enclose your python code with { and % on the both sides(look at syntax). The |linebreaksbr converts the \n character of python to a break character of HTML-->
+
+<!-- It is worthy noting that the last link is always the css file present in the computer. Because of the probability that the code in our css file might override the file of the bootstrap files  -->
+<!-- The new block content tag is basically a template tag! -->
+<!-- Line 23: it will allow only the user to edit the posts -->
 {% load staticfiles %}
 <html>
 
     <head>
-        <title>Django Girls blog</title>
+        <title>Dr. Mathai's Dental Center</title>
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
         <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
     </head>
-    
+
     <body>
         <div class="page-header">
-        <h1><a href="/">Django Girls Blog</a></h1>
+        <h1><a href="/">Dr. Mathai's Dental Center</a></h1>
+        {% if user.is_authenticated %} 
+        <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"> </span>
+        </a>
+        {% endif %}
         </div>
 
         <div class="content container">

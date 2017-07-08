@@ -20,7 +20,12 @@ from django.contrib import admin
 # the r of the pattern denotes that this is a regular expression to python
 # Django will now redirect everything that comes into 'http://127.0.0.1:8000/' to blog.urls and look for further instructions there.
 
+# the include function chops off the url till the '/' symbol. i.e. If you want services/common_services it will chop the "services/" part
+# and pass the rest "common_services to the services/urls.py file" . Always use include, except when it comes to the admin part
+# then use only admin.site.urls
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'', include('blog.urls'))
+   #url(r'^services/',include('services.urls'))
 ]
