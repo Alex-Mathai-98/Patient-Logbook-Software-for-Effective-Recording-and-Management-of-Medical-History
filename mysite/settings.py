@@ -14,7 +14,7 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
-    #'services',
+    'patient',
+    'materializecssform',
 ]
 
 MIDDLEWARE = [
@@ -57,7 +58,7 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['%s/templates/' % (PROJECT_DIR),],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -120,5 +121,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
+
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+# Creating namespaces for some static files that are not in apps.The other static files of apps are already included because of the STATIC_URL Variable
+# Now we can use {% static jquery/<actual_file> %}  or {% static jquery-ui/<actual_file> %} in url tags in templates
+# STATICFILES_DIRS = ( ('jquery','%s/<jquery_folder>/'%( BASE_DIR) ),
+#                      ('jquery-ui','%s/<jquery-ui-folder>/' %(BASE_DIR)),  )

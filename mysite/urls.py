@@ -15,8 +15,9 @@ Including another URLconf
 """
 from django.conf.urls import url,include
 from django.contrib import admin
+from django.views.generic import TemplateView
 
-
+from blog import views as blog_views
 # the r of the pattern denotes that this is a regular expression to python
 # Django will now redirect everything that comes into 'http://127.0.0.1:8000/' to blog.urls and look for further instructions there.
 
@@ -26,6 +27,9 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'', include('blog.urls'))
-   #url(r'^services/',include('services.urls'))
+    url(r'^blog/', include('blog.urls'),{'blog': "blog"}),
+    url(r'^patient/',include('patient.urls')),
+    #url(r'^$/',include('services.urls'))
+    url(r'^hola/$',TemplateView.as_view(template_name='hi.html')),
+    url(r'^$', blog_views.post_list),
 ]

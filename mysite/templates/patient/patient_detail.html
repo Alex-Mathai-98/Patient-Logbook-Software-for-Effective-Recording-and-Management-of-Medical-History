@@ -1,0 +1,94 @@
+
+{% extends 'patient/base.html' %}
+{% block content %}
+<table class="table table-striped table-hover">
+	<thead>
+		<tr>
+			<h3 class = "text-center"> {% if current_patient.First_Name %} {{current_patient.First_Name}} {% endif %} {% if current_patient.Middle_Name %} {{current_patient.Middle_Name}} {% endif %} {% if current_patient.Last_Name %} {{current_patient.Last_Name }} {% endif %} Details 
+			{% if user.is_authenticated %}
+			<div class = "btn-group btn-group-lg right" role = "group" aria-label = "..." >
+			<a class="btn btn-default" href=""><span class="glyphicon glyphicon-pencil"></span></a>
+			<a class="btn btn-default" href=""><span class="glyphicon glyphicon-remove"></span></a>
+        	{% endif %} 
+        	</h3>	
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>
+				Title : {% if current_patient.Title %}{{current_patient.Title }}{% endif %} 
+			</td>
+			<td>
+				Family : {{current_patient.Family}}
+			</td>
+			<td>
+				Patient Id : {{current_patient.Patient_Id}}
+			</td>
+		</tr>
+		<tr>
+			<td>
+				First Name : {% if current_patient.First_Name %} {{current_patient.First_Name}} {% endif %}
+			</td>
+			<td>
+				Middle Name : {% if current_patient.Middle_Name %} {{current_patient.Middle_Name}} {% endif %}
+			</td>
+			<td>
+				Last Name : {% if current_patient.Last_Name %} {{current_patient.Last_Name }} {% endif %}
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Gender :{% if current_patient.Gender %} {{current_patient.Gender}} {% endif %}
+			</td>
+			<td>
+				Address : {% if family.Address %} {{family.Address}} {% endif %}
+			</td>
+			<td>
+				Area : {% if family.Area %} {{family.Area}} {% endif %}
+			</td>
+		</tr>
+		<tr>
+			<td>
+				City : {% if family.City %} {{family.City}} {% endif %}
+			</td>
+			<td>
+				Pincode : {% if family.Pincode %} {{family.Pincode}} {% endif %}
+			</td>
+			<td>
+				State : {% if family.State %} {{family.State}} {% endif %}
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Birth Date : {% if current_patient.Birth_Date %} {{current_patient.Birth_Date}} {% endif %}
+			</td>
+			<td>
+				Blood Group : {% if current_patient.Blood_Group %} {{current_patient.Blood_Group}} {% endif %}
+			</td>
+			<td>
+				Mobile1 : {% if current_patient.Mobile1 %} {{current_patient.Mobile1}} {% endif %}
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Mobile2 : {% if current_patient.Mobile2 %} {{current_patient.Mobile2}} {% endif %}
+			</td>
+			<td>
+				Pending Balance : {% if current_patient.Pending_Balance %} {{current_patient.Pending_Balance}} {% endif %}
+			</td>
+			<td>
+				Family Balance : {% if current_patient.Family_Balance %} {{current_patient.Family_Balance}} {% endif %}
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Last Pay Date : {% if current_patient.Last_Pay_Date %} {{current_patient.Last_Pay_Date}} {% endif %}
+			</td>
+			<td>
+			</td>
+			<td>
+			</td>
+		</tr>
+	</tbody>
+</table>
+{% endblock %}

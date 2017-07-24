@@ -5,21 +5,23 @@ from .forms import PostForm
 from django.shortcuts import redirect
 # Create your views here.
 
-def post_list(request):
+def post_list(request,blog = None):
 
 	posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
 	# Created a query set for the posts
 
-	return render(request, 'blog/post_list.html',{'posts': posts})
+	return render(request, 'blog/post_list.html',{'posts': posts, 'chicken' : "chicken"})
 	# request is all the information we get from the user from the internet
 	# The second argument dictates which html file we need to include 
-	# The third dictionary tries to include the posts from our database into the template file
+	# The third dictionary tries to include the posts from our database into the template file, it is basically a 
+	# context variable used by the templates to put data!, In this case I put chicken as a test for this. I successfully
+	# printed chicken in the templates.
 	
-def post_detail(request,pk):
+def post_detail(request,pk, blog = None):
 	post = get_object_or_404(Post,pk = pk)
 	return render(request, 'blog/post_detail.html',{'post':post})
 
-def post_new(request):
+def post_new(request, blog = None):
 	if(request.method == "POST"): 
 		#In the html file we have named the method as "POST". Remember this must not be named something else. 
 		#If the method is equal to POST, then that means that the file has been filled in once. Or in another sense
@@ -36,7 +38,7 @@ def post_new(request):
 		form = PostForm()
 	return render(request, 'blog/post_edit.html', {'form':form})
 
-def post_edit(request,pk):
+def post_edit(request,pk, blog = None):
 	post = get_object_or_404(Post,pk = pk) #Just writing pk will not work, because pk is a variable. you need to write pk = pk!
 	if request.method == "POST":
 		form = PostForm(request.POST,instance = post)

@@ -1,0 +1,22 @@
+{% extends 'patient/base.html' %}
+
+{% block content %}
+
+<div class = "container-fluid">
+	<div class = "col-md-offset-4 col-md-4">
+		<h1 class = "text"> Search for your patient </h1>
+	</div>
+
+	<div class = "container-fluid">
+		<div class = "col-md-offset-4 col-md-4">
+			<form id="searchtext" action="{% url 'patient_list' %}" method="get" accept-charset="utf-8">
+			  <input class="searchfield" id="searchtext" name="search_text" type="text" placeholder="Search">
+		      <button class="searchbutton" type="submit">
+		        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+		      </button>
+		    </form>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

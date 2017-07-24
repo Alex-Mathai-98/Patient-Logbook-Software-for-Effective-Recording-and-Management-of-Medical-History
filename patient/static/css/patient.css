@@ -1,0 +1,26 @@
+
+.my_form{
+	margin-right: 10px;
+	margin-left: 10px;
+	margin-bottom: 10px;
+}
+
+.page-header-first-text{
+  font-family: 'Lobster', cursive;
+	color : #ffffff;
+	font-size: 40pt;
+	margin-bottom: 0;
+  margin-top: 0;
+	padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.page-header-first-div{
+  padding:0px 0px;
+  margin-top:0;
+  margin-bottom: 0;
+}
+.navmypage{
+	margin-top: 0;
+}
+
